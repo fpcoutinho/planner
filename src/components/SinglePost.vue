@@ -1,25 +1,23 @@
 <template>
   <div class="post">
-    <h3>{{ post.title }}</h3>
+    <h3>{{ props.post.title }}</h3>
     <p>{{ snippet }}</p>
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue'
 
-export default {
-  props: ['post'],
-  setup(props) {
-    const snippet = computed(() => {
-      return props.post.body.substring(0, 100) + '...'
-    })
-
-    return { snippet }
+const props = defineProps({
+  post: {
+    type: Object,
+    required: true
   }
-}
+})
+
+const snippet = computed(() => {
+  return props.post.body.substring(0, 100) + '...'
+})
 </script>
 
-<style>
-
-</style>
+<style></style>
