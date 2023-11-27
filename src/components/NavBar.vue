@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar bg-base-100 fixed top-0 px-20 w-full overflow-hidden z-10">
+  <header class="navbar bg-base-100 fixed top-0 xl:px-20 w-full overflow-hidden z-10">
     <div class="flex-1">
       <span class="btn btn-ghost text-xl">The Dojo Blog</span>
     </div>

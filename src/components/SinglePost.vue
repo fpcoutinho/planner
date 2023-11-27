@@ -1,5 +1,5 @@
 <template>
-  <div class="post card glass shadow-lg hover:shadow-xl">
+  <div class="post card w-96 lg:w-auto glass shadow-lg hover:shadow-xl">
     <div class="card-body">
       <router-link class="no-underline" :to="{ name: 'Details', params: { id: props.post.id } }">
         <h2 class="card-title justify-center text-primary">{{ props.post.title }}</h2>

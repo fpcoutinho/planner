@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <main class="flex flex-col items-center p-8 mt-8">
+  <main class="flex flex-col w-full mt-16 px-5 md:px-20">
     <router-view />
   </main>
 </template>
@@ -17,6 +17,9 @@ import NavBar from './components/NavBar.vue';
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: 10rem;
+}
+
+.prose {
+  max-width: 100% !important;
 }
 </style>

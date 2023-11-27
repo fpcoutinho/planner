@@ -1,8 +1,8 @@
 <template>
-  <div class="home prose flex flex-col items-center">
+  <div class="tagview prose flex flex-col items-center">
     <h1># {{ tag }}</h1>
     <p v-if="error" class="text-error">{{ error }}</p>
-    <div class="content" v-if="posts.length">
+    <div class="content w-full flex flex-row justify-around gap-4" v-if="posts.length">
       <PostList :posts="postsWithTag" />
       <TagCloud :posts="posts" />
     </div>
