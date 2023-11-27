@@ -1,10 +1,14 @@
 <template>
   <div class="post card glass shadow-lg hover:shadow-xl">
     <div class="card-body">
-      <h2 class="card-title justify-center text-primary">{{ props.post.title }}</h2>
+      <router-link class="no-underline" :to="{ name: 'Details', params: { id: props.post.id } }">
+        <h2 class="card-title justify-center text-primary">{{ props.post.title }}</h2>
+      </router-link>
       <p class="text-neutral">{{ snippet }}</p>
       <div class="card-actions justify-end">
-        <span class="badge badge-primary badge-outline" v-for="tag in post.tags" :key="tag"># {{ tag }}</span>
+        <router-link v-for="tag in post.tags" :key="tag" class="no-underline" :to="{ name: 'Tag', params: { tag: tag } }">
+          <span class="badge badge-primary badge-outline">#{{ tag }}</span>
+        </router-link>
       </div>
     </div>
   </div>
