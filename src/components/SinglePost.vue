@@ -1,10 +1,10 @@
 <template>
   <div class="post card glass shadow-lg hover:shadow-xl">
     <div class="card-body">
-      <h2 class="card-title justify-center">{{ props.post.title }}</h2>
-      <p>{{ snippet }}</p>
+      <h2 class="card-title justify-center text-primary">{{ props.post.title }}</h2>
+      <p class="text-neutral">{{ snippet }}</p>
       <div class="card-actions justify-end">
-        <span class="badge badge-secondary badge-outline" v-for="tag in post.tags" :key="tag"># {{ tag }}</span>
+        <span class="badge badge-primary badge-outline" v-for="tag in post.tags" :key="tag"># {{ tag }}</span>
       </div>
     </div>
   </div>
