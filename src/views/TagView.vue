@@ -2,7 +2,10 @@
   <div class="home prose flex flex-col items-center">
     <h1># {{ tag }}</h1>
     <p v-if="error" class="text-error">{{ error }}</p>
-    <PostList v-if="posts.length" :posts="postsWithTag" />
+    <div class="content" v-if="posts.length">
+      <PostList :posts="postsWithTag" />
+      <TagCloud :posts="posts" />
+    </div>
     <div v-else><span class="loading loading-ring loading-md text-accent"></span></div>
   </div>
 </template>
@@ -11,6 +14,7 @@
 import { onMounted, computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import PostList from '../components/PostList.vue'
+import TagCloud from '../components/TagCloud.vue'
 import getPosts from '../composables/getPosts'
 
 const route = useRoute()
