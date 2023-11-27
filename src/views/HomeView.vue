@@ -1,6 +1,6 @@
 <template>
   <div class="home prose flex flex-col items-center">
-    <h1>Home</h1>
+    <h1>My Blog</h1>
     <div class="button-list flex flex-row gap-3 mb-4">
       <button type="button" class="btn btn-accent btn-outline btn-sm" @click="showPosts = !showPosts">Toggle
         posts</button>
