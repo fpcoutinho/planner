@@ -1,7 +1,12 @@
 <template>
-  <div class="post">
-    <h3>{{ props.post.title }}</h3>
-    <p>{{ snippet }}</p>
+  <div class="post card glass shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title justify-center">{{ props.post.title }}</h2>
+      <p>{{ snippet }}</p>
+      <div class="card-actions justify-end">
+        <span class="badge badge-secondary badge-outline" v-for="tag in post.tags" :key="tag"># {{ tag }}</span>
+      </div>
+    </div>
   </div>
 </template>
 

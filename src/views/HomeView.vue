@@ -1,23 +1,26 @@
 <template>
   <div class="home prose flex flex-col items-center p-4">
     <h1>Home</h1>
-    <div class="button-list flex flex-row gap-3">
+    <div class="button-list flex flex-row gap-3 mb-4">
       <button type="button" class="btn btn-neutral btn-sm" @click="showPosts = !showPosts">Toggle
         posts</button>
       <button type="button" class="btn btn-neutral btn-sm" @click="posts.pop()">Delete a post</button>
     </div>
-    <PostList v-if="showPosts" :posts="posts" />
+    <p v-if="error" class="text-error">{{ error }}</p>
+    <PostList v-if="posts.length" v-show="showPosts" :posts="posts" />
+    <p v-else><span class="loading loading-ring loading-md text-accent"></span></p>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import PostList from '../components/PostList.vue'
-
-const posts = ref([
-  { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in imperdiet nisi. Vestibulum eu dui dictum, ornare est non, dignissim dui. Donec at ex nulla. Aenean sem tortor, bibendum ac accumsan vel, elementum vel turpis. Nam auctor egestas pulvinar. Aenean placerat finibus finibus. Praesent dictum velit at purus aliquam, sit amet mattis est molestie. Duis a nulla et mauris luctus feugiat nec cursus odio. Nam elementum vitae est eu porttitor. Nulla vestibulum gravida magna eu ultricies. Nunc posuere tincidunt pellentesque. Sed id condimentum nisl, ultricies viverra orci. Fusce sit amet massa ut nibh feugiat elementum ac id est.', id: 1 },
-  { title: 'top 5 CSS tips', body: 'lorem ipsum', id: 2 },
-])
+import getPosts from '../composables/getPosts'
 
 const showPosts = ref(true)
+const { posts, error, load } = getPosts()
+
+onMounted(() => {
+  load()
+})
 </script>
