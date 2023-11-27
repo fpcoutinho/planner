@@ -8,7 +8,7 @@
     </div>
     <p v-if="error" class="text-error">{{ error }}</p>
     <PostList v-if="posts.length" v-show="showPosts" :posts="posts" />
-    <p v-else><span class="loading loading-ring loading-md text-accent"></span></p>
+    <div v-else><span class="loading loading-ring loading-md text-accent"></span></div>
   </div>
 </template>
 
