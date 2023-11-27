@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex justify-center items-center p-4">
+  <div class="h-full flex justify-center items-center">
     <p v-if="error" class="text-error">{{ error }}</p>
     <div v-if="post" class="post prose">
       <h2>{{ post.title }}</h2>

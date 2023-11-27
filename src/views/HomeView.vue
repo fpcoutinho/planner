@@ -1,10 +1,12 @@
 <template>
-  <div class="home prose flex flex-col items-center p-4">
+  <div class="home prose flex flex-col items-center">
     <h1>Home</h1>
     <div class="button-list flex flex-row gap-3 mb-4">
-      <button type="button" class="btn btn-neutral btn-sm" @click="showPosts = !showPosts">Toggle
+      <button type="button" class="btn btn-accent btn-outline btn-sm" @click="showPosts = !showPosts">Toggle
         posts</button>
-      <button type="button" class="btn btn-neutral btn-sm" @click="posts.pop()">Delete a post</button>
+
+      <router-link to="/create" class="btn btn-success btn-outline btn-sm">Create a post</router-link>
+      <button type="button" class="btn btn-error btn-outline btn-sm" @click="posts.pop()">Delete a post</button>
     </div>
     <p v-if="error" class="text-error">{{ error }}</p>
     <PostList v-if="posts.length" v-show="showPosts" :posts="posts" />

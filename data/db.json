@@ -19,6 +19,24 @@
         "webdev",
         "coding"
       ]
+    },
+    {
+      "title": "Gatos",
+      "body": "Eu amo meus gatos Appa e Mushu!",
+      "tags": [
+        "gatos"
+      ],
+      "id": 3
+    },
+    {
+      "title": "Isabelle",
+      "body": "Amo minha noiva Isabelle!",
+      "tags": [
+        "noiva",
+        "amor",
+        "vida"
+      ],
+      "id": 4
     }
   ]
 }

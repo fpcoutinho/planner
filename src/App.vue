@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col items-center">
+  <main class="flex flex-col items-center p-8">
     <router-view />
   </main>
 </template>

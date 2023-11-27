@@ -1,8 +1,9 @@
 <template>
-  <div class="post-list flex flex-col gap-3">
-    <div v-for="post in props.posts" :key="post.id">
+  <div class="flex flex-col gap-3">
+    <router-link v-for="post in props.posts" :key="post.id" :to="{ name: 'Details', params: { id: post.id } }"
+      class="no-underline">
       <SinglePost :post="post" />
-    </div>
+    </router-link>
   </div>
 </template>
 
