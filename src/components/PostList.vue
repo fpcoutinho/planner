@@ -7,14 +7,18 @@
 </template>
 
 <script setup>
-// component imports
 import SinglePost from './SinglePost.vue'
+import { onMounted } from 'vue'
 
 const props = defineProps({
   posts: {
     type: Array,
     required: true
   }
+})
+
+onMounted(() => {
+  console.log('mounted')
 })
 </script>
 
