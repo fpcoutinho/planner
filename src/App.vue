@@ -18,8 +18,4 @@ import NavBar from './components/NavBar.vue';
   flex-direction: column;
   align-items: center;
 }
-
-.prose {
-  max-width: 100% !important;
-}
 </style>

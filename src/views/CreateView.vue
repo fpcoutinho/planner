@@ -1,7 +1,7 @@
 <template>
-  <div class="create prose w-96">
+  <div class="create prose max-w-none w-full flex flex-col items-center">
     <h2>Create a Post</h2>
-    <form class="form flex flex-col gap-4" @submit.prevent="createPost">
+    <form class="form flex flex-col gap-4 w-96" @submit.prevent="createPost">
       <div class="form-control w-full">
         <label class="label" for="title">
           <span class="label-text text-neutral font-bold">Title</span>
@@ -43,6 +43,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { projectFirestore } from '../firebase/config';
 
 const router = useRouter()
 
@@ -70,14 +71,11 @@ const createPost = async () => {
     tags: tags.value
   }
 
-  await fetch('http://localhost:3000/posts', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(post)
-  }).then(() => {
-    router.push({ name: 'Home' })
-  })
+  try {
+    const res = await projectFirestore.collection('posts').add(post)
+    router.push({ name: 'Details', params: { id: res.id } })
+  } catch (err) {
+    console.log(err.message)
+  }
 }
 </script>

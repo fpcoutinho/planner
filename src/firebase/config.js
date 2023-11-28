@@ -1,0 +1,19 @@
+import firebase from 'firebase/app'
+import 'firebase/firestore' 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyChootRKCDyw0nb8SHVRZf3VJE50mFeY1A",
+  authDomain: "dojo-blog-f34e2.firebaseapp.com",
+  projectId: "dojo-blog-f34e2",
+  storageBucket: "dojo-blog-f34e2.appspot.com",
+  messagingSenderId: "784769430146",
+  appId: "1:784769430146:web:6b568c20f61672fc307a9b"
+}
+
+// init firebase
+firebase.initializeApp(firebaseConfig)
+
+// init firestore service
+const projectFirestore = firebase.firestore()
+
+export { projectFirestore }
